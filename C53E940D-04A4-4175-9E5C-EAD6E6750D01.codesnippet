@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjnetwork_request</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark &lt;# #&gt;请求
+- (void)&lt;#某#&gt;Request{
+    
+    WS(weakSelf);
+    BaseViewController *baseVC = (BaseViewController *)self.viewController;
+    __weak BaseViewController *weakBaseVC = baseVC;
+    [baseVC showHUD:nil isDim:NO mode:MBProgressHUDModeIndeterminate];
+    RegisterMobileStep1Api *api = [[RegisterMobileStep1Api alloc] initWithMobile:@""];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        LogBlue(@"%@",request.responseString);
+        [weakSelf registorStep1RequestFinish:request.responseJSONObject];
+        
+    } failure:^(YTKBaseRequest *request) {
+        LogRed(@"%@",request.responseString);
+        [weakBaseVC hideHUD];
+        [weakBaseVC showNetRefresh:^{
+            [weakBaseVC hideNetRefresh];
+            [weakSelf registorStep1Request];
+        }];
+    }];
+}
+
+#pragma mark &lt;# #&gt;请求返回结果
+- (void)&lt;#某#&gt;RequestFinish:(NSDictionary *)result {
+    
+    BaseViewController *baseVC = (BaseViewController *)self.viewController;
+    
+    NSNumber *code =(NSNumber *)[result objectForKey:@"code"];
+    NSString *desc = [result objectForKey:@"message"];
+    [baseVC hideHUD];
+    if ([code intValue] == kNetWorkSuccCode) {
+        
+        
+    } else {
+        
+        [baseVC showTitle:desc autoHidden:YES];
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C53E940D-04A4-4175-9E5C-EAD6E6750D01</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C 网络加载</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

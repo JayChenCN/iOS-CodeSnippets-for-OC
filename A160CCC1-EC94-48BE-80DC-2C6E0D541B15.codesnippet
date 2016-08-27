@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjtableview_header_init</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> //头部视图
+    [self.tableHeaderView addSubview:self.headerView];
+    [headerView makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(ScreenWidth);
+        make.height.equalTo(@325);
+        make.left.equalTo(@0);
+        make.top.equalTo(@0);
+    }];
+    
+    _tableView.tableHeaderView = self.tableHeaderView;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A160CCC1-EC94-48BE-80DC-2C6E0D541B15</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C UITableView Header 初始化</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

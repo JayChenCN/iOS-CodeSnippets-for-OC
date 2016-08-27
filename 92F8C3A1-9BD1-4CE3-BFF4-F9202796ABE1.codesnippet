@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjtableview_cell_init_method</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - Life Cycle
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.selectionStyle=UITableViewCellSelectionStyleNone;
+        self.contentView.backgroundColor = [UIColor lightGrayColor];
+        [self initSubviews];
+        
+    }
+    return self;
+}
+
+#pragma mark - Private Methods
+
+#pragma mark 初始化子视图
+- (void)initSubviews{
+    
+    
+    
+    [self makeConstraints];
+}
+
+#pragma mark 布局
+- (void)makeConstraints{
+    WS(weakSelf);
+    
+}
+
+
+#pragma mark - Public Methods
+
+
+#pragma mark - Event Responses
+
+
+#pragma mark - Notification Responses
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>92F8C3A1-9BD1-4CE3-BFF4-F9202796ABE1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C UITableViewCell初始化方法</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

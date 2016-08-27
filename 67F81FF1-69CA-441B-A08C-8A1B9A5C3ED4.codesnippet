@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjnetwork_addfooter</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark 上拉刷新数据
+- (void)addFooter
+{
+    if (!self.mj_footer) {
+    WS(weakSelf);
+        self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            [weakSelf pullUpRequest];
+        }];
+    }
+}
+
+#pragma mark 上拉请求数据
+- (void)pullUpRequest{
+    WS(weakSelf);
+    __weak BaseViewController *weakVC = (BaseViewController *)self.viewController;
+    NSString *token;
+    if ([MRDao getMember]) {
+        token = [MRDao getMember].token;
+    }else{
+        token = @"";
+    }
+    
+    MemberAttentionAnchorsApi *api = [[MemberAttentionAnchorsApi alloc] initWithToken:token MemberID:_memberID NewID:@"" OldID:_lastID];
+    
+    
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        LogBlue(@"%@",request.responseString);
+        [weakSelf pullUpRequestFinish:request.responseJSONObject];
+        [weakSelf.mj_footer endRefreshing];
+    } failure:^(YTKBaseRequest *request) {
+        LogRed(@"%@",request.responseString);
+        [weakSelf.mj_footer endRefreshing];
+        [weakVC hideHUD];
+        [weakVC showNetRefresh:^{
+            [weakVC hideNetRefresh];
+            [weakSelf pullUpRequest];
+        }];
+    }];
+}
+
+#pragma mark 上拉请求数据完成
+- (void)pullUpRequestFinish:(NSDictionary *)result{
+    
+    NSNumber *code =(NSNumber *)[result objectForKey:@"state_code"];
+    NSString *desc = [result objectForKey:@"state_desc"];
+    
+    __weak BaseViewController *weakVC = (BaseViewController *)self.viewController;
+    
+    if ([code intValue] == 0) {
+        
+        NSLog(@"state_desc:%@",desc);
+        
+        NSArray *anchorsListArray = [result objectForKey:@"anchors_list"];
+        if ((NSNull *)anchorsListArray != [NSNull null] &amp;&amp; anchorsListArray.count &gt; 0) {
+            for ( NSDictionary *anchorsDic in anchorsListArray) {
+                MemberModel *anchorsModel = [[MemberModel alloc]initWithDataDic:anchorsDic];
+                [self.dataSourceArray addObject:anchorsModel];
+            }
+
+            [self reloadData];
+        }else if ((NSNull *)anchorsListArray == [NSNull null] || anchorsListArray.count == 0)  {
+            [self.mj_footer removeFromSuperview];
+        }
+    }else{
+        [weakVC showTitle:desc autoHidden:YES];
+    }
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>67F81FF1-69CA-441B-A08C-8A1B9A5C3ED4</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C 上拉加载数据</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

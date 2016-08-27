@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjtableview_datasource_delegate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - UITableViewDataSource
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+{
+    
+    return 2;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01f;
+}
+
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    static NSString *identify_&lt;#Name#&gt;TableViewSection = @"&lt;#Name#&gt;TableViewSection";
+//    &lt;#Name#&gt;TableViewSection *cell = [tableView dequeueReusableCellWithIdentifier:identify_&lt;#Name#&gt;TableViewSection];
+//    if (cell == nil) {
+//        cell = [[&lt;#Name#&gt;TableViewSection alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify_&lt;#Name#&gt;TableViewSection];
+//    }
+//
+//    cell.section = section;
+//    return cell;
+//}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    if (section == 0) {
+        return 4;
+    }
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    &lt;#Clazz#&gt; *cell = [[&lt;#Clazz#&gt; alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([&lt;#Clazz#&gt; class]);];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    
+    
+    cell.indexPath = indexPath;
+    return cell;
+    
+    
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+    
+    
+    //    [self.navigationController pushViewController: animated:YES];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 45;
+    }
+    
+    float height = 165;
+    float rate = 250.0 / 750.0;//这里的.0一定要加上
+    height = ScreenWidth * rate;
+    
+    return 40 + height;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D06FDB5F-D3BA-4E34-80FE-17AFC2AC3AD8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C UITableView DataSource Delegate</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

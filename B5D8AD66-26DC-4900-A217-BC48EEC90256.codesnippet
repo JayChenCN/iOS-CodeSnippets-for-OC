@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjview_init_subviews</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (instancetype)init{
+    self = [super init];
+    
+    if (self) {
+        [self initSubviews];
+    }
+    return self;
+}
+
+#pragma mark Private Methods
+
+#pragma mark 初始化子视图
+- (void)initSubviews{
+    
+    
+    
+    //布局
+    [self makeConstraints];
+}
+
+#pragma mark 布局
+- (void)makeConstraints{
+    
+    WS(weakSelf);
+    
+    
+}
+
+#pragma mark - Public Methods
+
+
+#pragma mark - Event Responses
+
+
+#pragma mark - Notification Responses
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B5D8AD66-26DC-4900-A217-BC48EEC90256</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C View Init Subviews 视图初始化子视图</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

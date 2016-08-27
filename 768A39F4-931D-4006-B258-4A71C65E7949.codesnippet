@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjsegmented_webview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>WS(weakSelf);
+NSArray *titleArray = [NSArray arrayWithObjects:@"&lt;#标题1#&gt;", @"&lt;#标题2#&gt;",nil];
+    NSArray *urlArray = [NSArray arrayWithObjects:@"&lt;#http://www.5usport.com#&gt;",@"&lt;#http://www.5usport.com#&gt;", nil];
+    _segmentedWebView = [[SegmentedWebView alloc] initWithTitleArray:titleArray andUrlArray:urlArray];
+    [self.view addSubview:_segmentedWebView];
+    [_segmentedWebView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.view);
+        make.bottom.equalTo(weakSelf.view);
+        make.left.equalTo(weakSelf.view);
+        make.right.equalTo(weakSelf.view);
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>768A39F4-931D-4006-B258-4A71C65E7949</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C SegmentedWebView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

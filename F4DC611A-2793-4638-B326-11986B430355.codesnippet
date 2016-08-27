@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjcollectionview_datasource_delegate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
+    self = [super initWithFrame:frame collectionViewLayout:layout];
+    if (self) {
+        self.dataSource = self;
+        self.delegate = self;
+        self.backgroundColor = [UIColor redColor];
+
+    }
+    return self;
+}
+
+#pragma mark - UICollectionViewDataSource
+
+#pragma mark 定义展示的UICollectionViewCell的个数
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 4;
+    }
+    return 8;//_dataSourceArray.count;
+}
+
+#pragma mark 定义展示的Section的个数
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
+
+
+
+#pragma mark 每个UICollectionView展示的内容
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    static NSString *identify_MembersCollectionViewCell = @"MembersCollectionViewCell";
+    MemberBaseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify_MemberBaseCollectionViewCell forIndexPath:indexPath];
+    
+//    MemberModel *memberModel =  _dataSourceArray[indexPath.row];
+//    cell.memberModel = memberModel;
+    //    与UITableView不同，这里不能单单给cell传模型这种方式，还要在这里把cell组件的值给修改了
+    
+//    [cell.avatarImageView setImageURLStr:memberModel.member_logo placeholder:[UIImage imageNamed:@"member_center_avatar_default"]];
+    
+    //    __weak OnlineUserCollectionView *this = self;
+//    WS(weakSelf);
+//    cell.avatarImageView.touchBlock = ^(void){
+//        //        FriendDetailViewController *friendDetailVC = [[FriendDetailViewController alloc] init];
+//        //        friendDetailVC.isBack = YES;
+//        //        friendDetailVC.memberModel = memberModel;
+//        //        [this.viewController.navigationController pushViewController:friendDetailVC animated:YES];
+//    };
+    
+    //    LogRed(@"%@",_memberModel.nick_name);
+//    cell.nickNameLabel.text = memberModel.nick_name;
+    
+    return cell;
+    
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+
+{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader){
+        
+        if (indexPath.section == 0) {
+        
+            MembersCollectionSectionOneHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identify_MembersCollectionSectionOneHeaderReusableView forIndexPath:indexPath];
+                reusableview = headerView;
+
+        }else{
+            MembersCollectionSectionTwoHeaderReusableView *headerView2 = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identify_MembersCollectionSectionTwoHeaderReusableView forIndexPath:indexPath];
+                reusableview = headerView2;
+        }
+
+        
+//        NSString *title = [[NSString alloc] initWithFormat:@"Recipe Group #%i",indexPath.section +1];
+        
+//        headerView.title.text = title;
+        
+//        UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
+//        
+//        headerView.backgroundImage.image = headerImage;
+        
+        
+    }
+    
+//    if (kind == UICollectionElementKindSectionFooter){
+//        
+//        UICollectionReusableView *footerview = [collectionView dequeueResuableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+//        
+//        reusableview = footerview;
+//        
+//    }
+//    
+    return reusableview;
+}
+
+#pragma mark -UICollectionViewDelegateFlowLayout
+
+#pragma mark 定义每个UICollectionView 的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(80, 80);
+}
+
+#pragma mark 定义每个UICollectionView 的 margin
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
+#pragma mark 定义SectionHeader的size
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if(section == 0)
+        return CGSizeMake(ScreenWidth, 105.0f);
+    else
+        return CGSizeMake(ScreenWidth, 50.0f);
+}
+
+#pragma mark 定义SectionFooter的size
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+//    
+//}
+
+
+#pragma mark -UICollectionViewDelegate
+
+#pragma mark UICollectionView被选中时调用的方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    //    cell.backgroundColor = [UIColor whiteColor];
+}
+
+#pragma mark 返回这个UICollectionView是否可以被选择
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F4DC611A-2793-4638-B326-11986B430355</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C CollectionView DataSource Delegate</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjytk_api</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>{
+    NSString *_&lt;#name#&gt;;
+}
+- (id)initWith&lt;#name#&gt;:(NSString *)&lt;#name#&gt;
+{
+    self = [super init];
+    if (self) {
+        
+        _&lt;#name#&gt; = &lt;#name#&gt;;
+    }
+    return self;
+    
+}
+- (NSString *)requestUrl {
+    return @"&lt;##&gt;";
+
+}
+
+- (YTKRequestMethod)requestMethod {
+    return &lt;#YTKRequestMethodGet#&gt;;
+}
+
+- (id)requestArgument {
+        return @{
+             @"&lt;#name#&gt;":_&lt;#name#&gt;
+             };
+}
+
+//- (id)jsonValidator {
+//    return @{
+//             @"state_code": [NSString class]
+//            };
+//}
+
+
+//- (NSMutableArray *)convert&lt;#name#&gt;List {
+//    
+//    NSArray *&lt;#name#&gt;List = [self responseJSONObject][@"data"][@"&lt;#name#&gt;"];
+//    if([&lt;#name#&gt;List isAvailableObject]){
+//        NSMutableArray *&lt;#name#&gt;MutableList = [[NSMutableArray alloc] initWithCapacity:&lt;#name#&gt;List.count];
+//        for (NSDictionary *dic in &lt;#name#&gt;List) {
+//            &lt;#name#&gt;Model *model = [[&lt;#name#&gt;Model alloc] initWithDataDic:dic];
+//            [&lt;#name#&gt;MutableList addObject:model];
+//        }
+//        return &lt;#name#&gt;MutableList;
+//        
+//    }else{
+//        return nil;
+//    }
+//    
+//    
+//}
+
+
+//- (NSInteger)cacheTimeInSeconds {
+//    return 60 * 3;
+//}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>36F05E86-A42C-4177-80A7-3188E4AB88D8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C YTK API</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

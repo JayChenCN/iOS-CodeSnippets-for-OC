@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjview-controller_did_load</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)viewDidLoad{
+    [super viewDidLoad];
+    NSString *title = @"&lt;#标题#&gt;";
+    self.title = kLocalizedString(title);
+    self.isBack = YES;
+    self.logTag = title;
+    
+    [self initSubviews];
+    
+    
+}
+
+#pragma mark - Make UI
+
+#pragma mark 初始化子视图
+- (void)initSubviews{
+    
+    
+    
+    [self makeConstraints];
+}
+
+#pragma mark 布局
+- (void)makeConstraints{
+    WS(weakSelf);
+    
+}
+
+#pragma mark - Public Methods
+
+
+#pragma mark - Event Responses
+
+
+#pragma mark - Notification Responses</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9370A538-7F60-4802-8C48-CDF88A220886</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C ViewController DidLoad视图已加载</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

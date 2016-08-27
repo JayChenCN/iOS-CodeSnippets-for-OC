@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjnetwork_addheader</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark 下拉刷新数据
+- (void)addHeader
+{
+    if (!self.mj_header) {
+        WS(weakSelf);
+        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf getSquareListRequest];
+    }];
+        }
+//    [self.tableView.mj_header beginRefreshing];
+}
+
+#pragma mark 下拉请求数据
+- (void)pullDownRequest{
+    __weak SquareViewController *this = self;
+    
+    NSLog(@"_firstID = %@",_firstID);
+    
+    if (!_firstID) {
+        _firstID = @"";
+    }
+
+    WeiBoGetWeiBoListApi *api = [[WeiBoGetWeiBoListApi alloc] initWithNewID:_firstID OldID:@""];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        LogBlue(@"%@",request.responseString);
+        [this pullDownRequestFinish:request.responseJSONObject];
+        [this.tableView.mj_header endRefreshing];
+    } failure:^(YTKBaseRequest *request) {
+        LogRed(@"%@",request.responseString);
+        [this.tableView.mj_header endRefreshing];
+        [this hideHUD];
+        [this showNetRefresh:^{
+            [this hideNetRefresh];
+            [this pullDownRequest];
+        }];
+    }];
+    
+    
+}
+
+#pragma mark 下拉请求数据完成
+- (void)pullDownRequestFinish:(NSDictionary *)result{
+    
+    NSNumber *code =(NSNumber *)[result objectForKey:@"state_code"];
+    NSString *desc = [result objectForKey:@"state_desc"];
+    
+    __weak SquareViewController *weakVC = (SquareViewController *)self;
+    
+    if ([code intValue] == 0) {
+        
+        NSLog(@"state_desc:%@",desc);
+        NSArray *weiboListArray = [result objectForKey:@"weibo_list"];
+
+        if ((NSNull *)weiboListArray != [NSNull null] &amp;&amp; weiboListArray.count &gt; 0) {
+            for (int i=weiboListArray.count-1; i&gt;=0; i--) {
+                WeiboListModel *newWeiboListModel = [[WeiboListModel alloc] initWithDataDic:weiboListArray[i]];
+                //循环一下有没有这天的数据，有的放太修改，没有的话就添加
+                int changeFlag = 0;
+                for (WeiboListModel *oldWeiboListModel in _dataSource) {
+                    //这天的数据存在列表里，所以循环修改数据
+                    if ([newWeiboListModel.w_id isEqualToString:oldWeiboListModel.w_id]) {
+                        
+                        oldWeiboListModel.w_id = newWeiboListModel.w_id;
+                        oldWeiboListModel.member_id = newWeiboListModel.member_id;
+                        oldWeiboListModel.content = newWeiboListModel.content;
+                        oldWeiboListModel.weibo_id = newWeiboListModel.weibo_id;
+                        oldWeiboListModel.forward_path = newWeiboListModel.forward_path;
+                        oldWeiboListModel.w_time = newWeiboListModel.w_time;
+                        oldWeiboListModel.ip = newWeiboListModel.ip;
+                        oldWeiboListModel.share_num = newWeiboListModel.share_num;
+                        oldWeiboListModel.zan_num = newWeiboListModel.zan_num;
+                        oldWeiboListModel.view_num = newWeiboListModel.view_num;
+                        oldWeiboListModel.forward_num = newWeiboListModel.forward_num;
+                        oldWeiboListModel.comment_num = newWeiboListModel.comment_num;
+                        oldWeiboListModel.collect_num = newWeiboListModel.collect_num;
+                        oldWeiboListModel.w_status = newWeiboListModel.w_status;
+                        oldWeiboListModel.file_path = newWeiboListModel.file_path;
+                        oldWeiboListModel.file_type = newWeiboListModel.file_type;
+                        oldWeiboListModel.ID = newWeiboListModel.ID;
+                        oldWeiboListModel.account = newWeiboListModel.account;
+                        oldWeiboListModel.nick_name = newWeiboListModel.nick_name;
+                        oldWeiboListModel.hx_uuid = newWeiboListModel.hx_uuid;
+                        oldWeiboListModel.hx_username = newWeiboListModel.hx_username;
+                        oldWeiboListModel.hx_password = newWeiboListModel.hx_password;
+                        oldWeiboListModel.role = newWeiboListModel.role;
+                        oldWeiboListModel.token = newWeiboListModel.token;
+                        oldWeiboListModel.token_status = newWeiboListModel.token_status;
+                        oldWeiboListModel.token_time = newWeiboListModel.token_time;
+                        oldWeiboListModel.add_time = newWeiboListModel.add_time;
+                        oldWeiboListModel.pushnews = newWeiboListModel.pushnews;
+                        oldWeiboListModel.status = newWeiboListModel.status;
+                        oldWeiboListModel.member_logo = newWeiboListModel.member_logo;
+
+                        changeFlag = 1;
+                        break;
+                    }
+                }
+                
+                
+                //这天的数据不存在列表里，所以添加进去
+                if (changeFlag == 0) {
+                    [_dataSource insertObject:newWeiboListModel atIndex:0];
+                }
+            }
+        }
+        
+        [_tableView reloadData];
+        
+    }else{
+        [weakVC showTitle:desc autoHidden:YES];
+    }
+        
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CE438EAA-7AC0-4F75-945F-937036411059</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C 下拉加载数据</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

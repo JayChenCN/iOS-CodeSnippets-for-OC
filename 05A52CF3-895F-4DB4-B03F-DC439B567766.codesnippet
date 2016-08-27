@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjcollectionview_init</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark 初始化Collection视图
+- (void)initCollectionView{
+    
+    //会员CollectionView
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake(199, 60);
+    //    if (IS_IOS8)
+    //layout.estimatedItemSize = CGSizeMake(199, 60);
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.minimumInteritemSpacing = 1;
+    layout.minimumLineSpacing = 10;
+    layout.sectionInset = UIEdgeInsetsMake(1,1,1,1);
+    layout.headerReferenceSize = CGSizeZero;//CGSizeMake(ScreenWidth, 50.0f);
+    layout.footerReferenceSize = CGSizeZero;
+    
+    MembersCollectionView *membersCollectionView = [[MembersCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    [self.view addSubview:membersCollectionView];
+    
+    WS(weakSelf);
+    
+    [membersCollectionView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.view).offset(0);
+        make.left.equalTo(weakSelf.view);
+        make.right.equalTo(weakSelf.view);
+        make.bottom.equalTo(weakSelf.view).offset(-49);
+    }];
+    
+    [membersCollectionView registerClass:[MembersCollectionViewCell class] forCellWithReuseIdentifier:identify_MembersCollectionViewCell];
+    
+    [membersCollectionView registerClass:[MembersCollectionSectionOneHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identify_MembersCollectionSectionOneHeaderReusableView];
+    
+    [membersCollectionView registerClass:[MembersCollectionSectionTwoHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identify_MembersCollectionSectionTwoHeaderReusableView];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>05A52CF3-895F-4DB4-B03F-DC439B567766</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C CollectionView初始化</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

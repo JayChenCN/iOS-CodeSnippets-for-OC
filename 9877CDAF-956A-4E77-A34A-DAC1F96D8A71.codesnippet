@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjnavigationbar_text_right</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>   [self.rightButton setTitle:NSLocalizedString(@"&lt;#标题#&gt;", @"&lt;#标题#&gt;") forState:UIControlStateNormal];
+    [self.rightButton setTitle:NSLocalizedString(@"&lt;#标题#&gt;", @"&lt;#标题#&gt;") forState:UIControlStateHighlighted];
+    [self.rightButton sizeToFit];
+    
+    self.rightButtonBlock = ^(){
+        //点击回调
+    };</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9877CDAF-956A-4E77-A34A-DAC1F96D8A71</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C 导航栏右侧文字按钮</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
