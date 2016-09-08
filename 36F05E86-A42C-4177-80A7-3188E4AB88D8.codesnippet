@@ -44,23 +44,23 @@
 //}
 
 
-//- (NSMutableArray *)convert&lt;#name#&gt;List {
-//    
-//    NSArray *&lt;#name#&gt;List = [self responseJSONObject][@"data"][@"&lt;#name#&gt;"];
-//    if([&lt;#name#&gt;List isAvailableObject]){
-//        NSMutableArray *&lt;#name#&gt;MutableList = [[NSMutableArray alloc] initWithCapacity:&lt;#name#&gt;List.count];
-//        for (NSDictionary *dic in &lt;#name#&gt;List) {
-//            &lt;#name#&gt;Model *model = [[&lt;#name#&gt;Model alloc] initWithDataDic:dic];
-//            [&lt;#name#&gt;MutableList addObject:model];
+//- (NSMutableArray *)convert&lt;#Name#&gt;List {
+//
+//    NSArray *list = [self responseJSONObject][@"data"][@"&lt;#key#&gt;"];
+//    if([list isAvailableObject]){
+//        NSMutableArray *mutableList = [[NSMutableArray alloc] initWithCapacity:list.count];
+//        for (NSDictionary *dic in list) {
+//            &lt;#Name#&gt;Model *model = [[&lt;#Name#&gt;Model alloc] initWithDataDic:dic];
+//            [mutableList addObject:model];
 //        }
-//        return &lt;#name#&gt;MutableList;
-//        
+//        return mutableList;
+//
 //    }else{
 //        return nil;
 //    }
-//    
-//    
+//
 //}
+
 
 
 //- (NSInteger)cacheTimeInSeconds {
