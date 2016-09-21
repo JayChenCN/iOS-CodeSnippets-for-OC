@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjgetter_button</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UIButton *)&lt;#instanceName#&gt; {
+    if (!_&lt;#instanceName#&gt;) {
+        _&lt;#instanceName#&gt; =  ({
+            UIButton *button = [[UIButton alloc] init];
+            [button setBackgroundImage:[UIImage imageNamed:@"" withTop:0 andLeft:0] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"" withTop:0 andLeft:0] forState:UIControlStateHighlighted];
+
+            button;
+        });
+        
+        
+    }
+    return _&lt;#instanceName#&gt;;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>DCB15CCE-AE02-4A74-AF54-96389F36F721</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C Getter Button</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

@@ -3,28 +3,30 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jjtableview_header_init</string>
+	<string>jjgetter</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string> //头部视图
-    [self.tableHeaderView addSubview:self.headerView];
-    [headerView makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(ScreenWidth);
-        make.height.equalTo(@325);
-        make.left.equalTo(@0);
-        make.top.equalTo(@0);
-    }];
+	<string>- (&lt;#ClassName#&gt; *)&lt;#instanceName#&gt;{
+    if (!_&lt;#instanceName#&gt;) {
+        _&lt;#instanceName#&gt; = ({
+            &lt;#ClassName#&gt; *view = [[&lt;#ClassName#&gt; alloc] init];
+            
+            view;
+        });
+
+    }
     
-    _tableView.tableHeaderView = self.tableHeaderView;</string>
+    return _&lt;#instanceName#&gt;;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>A160CCC1-EC94-48BE-80DC-2C6E0D541B15</string>
+	<string>885E7146-F231-4E61-AA73-6889FFF6BE06</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Objective-C UITableView Header 初始化</string>
+	<string>Objective-C Getter</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

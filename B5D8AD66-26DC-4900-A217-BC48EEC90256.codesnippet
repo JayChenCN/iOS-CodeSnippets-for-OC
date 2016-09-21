@@ -14,6 +14,8 @@
     
     if (self) {
         [self initSubviews];
+        [self makeConstraints];
+        [self bindingEventActions];
     }
     return self;
 }
@@ -25,8 +27,7 @@
     
     
     
-    //布局
-    [self makeConstraints];
+
 }
 
 #pragma mark 布局
@@ -41,7 +42,9 @@
 
 
 #pragma mark - Event Responses
-
+- (void)bindingEventActions{
+    
+}
 
 #pragma mark - Notification Responses
 </string>

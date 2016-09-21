@@ -18,7 +18,9 @@
     
     [self initSubviews];
     
+    [self makeConstraints];
     
+    [self bindingEventActions];
 }
 
 #pragma mark - Make UI
@@ -26,9 +28,7 @@
 #pragma mark 初始化子视图
 - (void)initSubviews{
     
-    
-    
-    [self makeConstraints];
+
 }
 
 #pragma mark 布局
@@ -41,6 +41,9 @@
 
 
 #pragma mark - Event Responses
+- (void)bindingEventActions{
+    
+}
 
 
 #pragma mark - Notification Responses</string>

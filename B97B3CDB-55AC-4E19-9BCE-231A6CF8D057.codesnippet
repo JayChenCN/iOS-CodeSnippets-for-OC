@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjgetter_ttlabel</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (TTLabel *)&lt;#instanceName#&gt;{
+    if (!_&lt;#instanceName#&gt;) {
+        _&lt;#instanceName#&gt; = ({
+            TTLabel *label = [[TTLabel alloc] init];
+            label.backgroundColor = [UIColor clearColor];
+            label.font = kFont;
+            label.textColor = kColor;
+            label.numberOfLines = 1;
+            label.textAlignment =NSTextAlignmentLeft;
+            label.text = @"";
+            label;
+        });
+        
+    }
+    return _&lt;#instanceName#&gt;;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B97B3CDB-55AC-4E19-9BCE-231A6CF8D057</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C Getter TTLabel</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

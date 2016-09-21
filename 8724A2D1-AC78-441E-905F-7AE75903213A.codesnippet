@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jjaddsubview_contentView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    //&lt;#desc#&gt;
+    [self.contentView addSubview:self&lt;#view#&gt;];
+    
+    //&lt;#desc#&gt;
+    [self.contentView addSubview:self&lt;#view#&gt;];
+    
+    //&lt;#desc#&gt;
+    [self.contentView addSubview:self&lt;#view#&gt;];
+    
+    //&lt;#desc#&gt;
+    [self.contentView addSubview:self&lt;#view#&gt;];
+    
+    //&lt;#desc#&gt;
+    [self.contentView addSubview:self&lt;#view#&gt;];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>8724A2D1-AC78-441E-905F-7AE75903213A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Objective-C contentView addSubview</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

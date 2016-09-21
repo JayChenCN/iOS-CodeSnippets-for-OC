@@ -3,33 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jjtableview_init</string>
+	<string>jjgetter_ttimageview</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>
-    [self.view addSubview:_tableView];
-
-    [_tableView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.view);
-        make.bottom.equalTo(weakSelf.view).offset(-49);
-        make.left.equalTo(weakSelf.view);
-        make.right.equalTo(weakSelf.view);
+	<string>- (TTImageView *)&lt;#instanceName#&gt; {
+    if (!_&lt;#instanceName#&gt;) {
+        _&lt;#instanceName#&gt; =  ({
+            TTImageView *view = [[TTImageView alloc] initWithCircleWidth:0];
+            view.image = [UIImage imageNamed:@""];
+            view;
+        });
         
-    }];
-    
-   </string>
+    }
+    return _&lt;#instanceName#&gt;;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>506227C9-C929-4B1B-9D14-8F3365D44ECB</string>
+	<string>C9EA414C-67B9-4146-BD56-D82CD6183A3E</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Objective-C UITableView初始化</string>
+	<string>Objective-C Getter TTImageView</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

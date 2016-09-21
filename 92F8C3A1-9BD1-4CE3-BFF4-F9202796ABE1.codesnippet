@@ -18,6 +18,8 @@
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.contentView.backgroundColor = [UIColor lightGrayColor];
         [self initSubviews];
+        [self makeConstraints];
+        [self bindingEventActions];
         
     }
     return self;
@@ -30,7 +32,7 @@
     
     
     
-    [self makeConstraints];
+    
 }
 
 #pragma mark 布局
@@ -44,7 +46,9 @@
 
 
 #pragma mark - Event Responses
-
+- (void)bindingEventActions{
+    
+}
 
 #pragma mark - Notification Responses
 </string>
