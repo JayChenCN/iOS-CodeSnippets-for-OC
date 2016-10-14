@@ -10,19 +10,19 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>    //&lt;#desc#&gt;
-    [self.view addSubview:self&lt;#view#&gt;];
+    [self.view addSubview:self.&lt;#view#&gt;];
     
     //&lt;#desc#&gt;
-    [self.view addSubview:self&lt;#view#&gt;];
+    [self.view addSubview:self.&lt;#view#&gt;];
     
     //&lt;#desc#&gt;
-    [self.view addSubview:self&lt;#view#&gt;];
+    [self.view addSubview:self.&lt;#view#&gt;];
     
     //&lt;#desc#&gt;
-    [self.view addSubview:self&lt;#view#&gt;];
+    [self.view addSubview:self.&lt;#view#&gt;];
     
     //&lt;#desc#&gt;
-    [self.view addSubview:self&lt;#view#&gt;];</string>
+    [self.view addSubview:self.&lt;#view#&gt;];</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>20BEBCD6-19AF-4A44-A003-942522D9ADB9</string>
 	<key>IDECodeSnippetLanguage</key>
@@ -32,6 +32,6 @@
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>
